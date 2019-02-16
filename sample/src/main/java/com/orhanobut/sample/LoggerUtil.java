@@ -7,6 +7,14 @@ public class LoggerUtil {
     }
     public static void init(LOGGER_ACTIVE_PROFILE profile)
     {
-
+        switch (profile)
+        {
+            case LOCAL:
+                break;
+            case DEVELOP:
+                break;
+            case PRODUCT:
+                break;
+        }
     }
 }
