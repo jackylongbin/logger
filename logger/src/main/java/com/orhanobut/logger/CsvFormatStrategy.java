@@ -28,6 +28,8 @@ public class CsvFormatStrategy implements FormatStrategy {
   @NonNull private final SimpleDateFormat dateFormat;
   @NonNull private final LogStrategy logStrategy;
   @Nullable private final String tag;
+  //Add by jacky for set log file folder by customer
+  @Nullable private final String folder;
 
   private CsvFormatStrategy(@NonNull Builder builder) {
     checkNotNull(builder);
@@ -36,6 +38,8 @@ public class CsvFormatStrategy implements FormatStrategy {
     dateFormat = builder.dateFormat;
     logStrategy = builder.logStrategy;
     tag = builder.tag;
+    //Add by jacky for set log file folder by customer
+    folder = builder.folder;
   }
 
   @NonNull public static Builder newBuilder() {
@@ -94,7 +98,8 @@ public class CsvFormatStrategy implements FormatStrategy {
     SimpleDateFormat dateFormat;
     LogStrategy logStrategy;
     String tag = "PRETTY_LOGGER";
-
+    //Add by jacky for set log file folder by customer
+    String folder = "logger";
     private Builder() {
     }
 
@@ -116,6 +121,13 @@ public class CsvFormatStrategy implements FormatStrategy {
     @NonNull public Builder tag(@Nullable String tag) {
       this.tag = tag;
       return this;
+    }
+
+    //Add by jacky for set log file folder by customer
+    @NonNull public Builder folder(@Nullable String folder)
+    {
+        this.folder = folder;
+        return this;
     }
 
     @NonNull public CsvFormatStrategy build() {
